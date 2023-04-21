@@ -8,7 +8,7 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
 const Contact = () => {
-  const formRef = useRef();
+  const formRef = useRef<HTMLFormElement>(null);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -17,7 +17,7 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
     const { target } = e;
     const { name, value } = target;
 
@@ -27,22 +27,22 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
     emailjs
       .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        process.env?.REACT_APP_EMAILJS_SERVICE_ID ?? "",
+        process.env?.REACT_APP_EMAILJS_TEMPLATE_ID ?? "",
         {
           from_name: form.name,
-          to_name: "JavaScript Mastery",
+          to_name: "Jovial P Thomas",
           from_email: form.email,
-          to_email: "sujata@jsmastery.pro",
+          to_email: "jvlthms@gmail.com",
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
