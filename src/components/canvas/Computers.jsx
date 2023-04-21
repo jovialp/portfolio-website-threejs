@@ -55,6 +55,7 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
+      // className={isMobile ? "hidden" : ""}
       frameloop="demand"
       shadows
       dpr={[1, 2]}
