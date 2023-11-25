@@ -129,6 +129,7 @@ const Contact = () => {
       >
         <EarthCanvas />
       </motion.div>
+      <h6>Copyright ©{new Date().getFullYear()} by <a href="/">Jovial</a>. All rights reserved.</h6>
     </div>
   );
 };
