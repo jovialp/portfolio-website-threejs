@@ -17,6 +17,8 @@ const Home = () => {
                 <Contact />
                 <StarsCanvas />
             </div>
+            
+      <h6 className="text-center">Copyright ©{new Date().getFullYear()} by <a href="https://imagine.jovialp.com/">Jovial</a>. All rights reserved.</h6>
         </div>
     );
 }
